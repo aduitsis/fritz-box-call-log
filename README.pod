@@ -1,0 +1,37 @@
+=head1 Fritz!Box call list
+
+=head2 BRIEF
+
+Get the call list from your Fritz!Box 
+
+=head2 SYNOPSIS
+
+ # run this from inside your home LAN
+ ./get_phone_calls.pl -p
+
+=head2 DESCRIPTION
+
+This little script can be used to extract the voice call log from an 
+AVM Fritz!Box voice-capable device. Just run the script with -p. 
+
+The script will try to login to the Fritz!Box and then use the
+appropriate web service to get the call list. As far as I know, there
+quite a few other web services available in the Fritz!Box besides the
+call log. The login sequence can most certainly be used to access those
+services too.
+
+The call log is returned in the form of an XML document. The script uses
+the XML::LibXML library to parse it. So, modification should be quite
+easy by playing around with the XPath expressions. See the code, it's
+quite simple.
+
+=head2 HISTORY AND ABOUT
+
+This version was written by Athanasios Douitsis C<< <aduitsis at cpan.org> >>
+
+The original version of this script was written by Walter Soldierer and
+is available and documented at
+L<http://blog.soldierer.com/2009/12/06/neues-fritzbox-session-id-login-verfahren-in-perl/>
+Many thanks, especially for documenting the Fritz!Box login procedure.
+
+This piece of code is released under the same license as Perl itself.
