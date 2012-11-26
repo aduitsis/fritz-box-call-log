@@ -67,7 +67,7 @@ $http_response = $user_agent->post(
 );
 
 # XML Daten anzeigen
-#say $http_response->content;
+# say $http_response->content;
 
 my $dom = XML::LibXML->load_xml(
 	string => $http_response->content,
@@ -96,5 +96,5 @@ p @calls;
 
 for( @calls ) {
 	state $i; say join "\t",keys %{ $_ } unless $i++; 
-	say join "\t",values %{ $_ } ;
+	say join "\t", map { $_ // '' } values %{ $_ } ;
 }
